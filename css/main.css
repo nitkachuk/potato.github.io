@@ -1,3 +1,5 @@
+/* сброс дефолтных настроек css */
+
 * {
 	margin: 0;
 	padding: 0;
@@ -18,10 +20,13 @@ body {
 	
 	width: 150px;
 	height: 150px;
-		position: absolute;
+
+		position: fixed;
 		left: 50%;
 		top: 50%;
+
 			transform: translate( -50%, -50% );
+
 	cursor: pointer;
 	transition: 0.3s;
 }
@@ -31,6 +36,9 @@ body {
 		transition: 0.3s;
 		
 	}
+
+
+/* кнопка выключения музыки */
 	
 #volume_button {
 	width: 40px;
@@ -41,7 +49,7 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 	
-		position: absolute;
+		position: fixed;
 		right: 15px;
 		bottom: 15px;
 
@@ -49,33 +57,72 @@ body {
 }
 
 
+
+/* контейнер с игровым полем и всеми элементами для игры */
+
 #main-box {
 	width: 730px;
 	height: 800px;
 		position: absolute;
 		left: 50%;
-		top: 50%;
-			transform: translate( -50%, -50% );
 }
+
+
+
+/* на маленьком экране выравнивания по y нет */
+
+@media only screen and (max-height : 800px)    { 
+
+    #main-box {
+    	top: 20px;
+        transform: translate( -50%, 0 );
+    }
+    
+}
+
+
+/* на нормальном экране выравниваем ровно по центру y */
+
+@media only screen and (min-height: 801px)    {
+
+	#main-box {
+		top: 50%;
+        transform: translate( -50%, -50% );
+    }
+
+}
+
+
+	
+	/* контейнер для таймера */
 
 	#timer-box {
 		width: 725px;
 		height: 50px;
+
 			font-size: 32px;
 			font-family: Courier New;
 			text-align: center;
 			padding-top: 5px;
+
 				font-weight: 600;
+
 		color: #9d752f;
 	}
+
+
+
+	/* контейнер для карт */
 
 	.card-box {
 		width: 725px;
 		height: 730px;
 		display: flex;
 		flex-wrap: wrap;
+
 			pointer-events: none;
 			opacity: 0.5;
+
 				margin-top: 15px;
 	}
 
@@ -84,10 +131,12 @@ body {
 			height: 100px;
 			margin: 10px;
 			cursor: pointer;
+
 				background-image: url( ../images/cards/shirt.png );
 				background-size: 75%;
 				background-repeat: no-repeat;
 				background-position: center;
+
 					border-radius: 100px;
 					transition: 0.2s;
 					
